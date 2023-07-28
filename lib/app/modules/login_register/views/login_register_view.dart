@@ -33,7 +33,7 @@ class LoginRegisterView extends GetView<LoginRegisterView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/images/logo.png',
+                    'assets/images/logo.PNG',
                     width: 200,
                     height: 200,
                   ),
