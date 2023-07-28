@@ -43,7 +43,7 @@ class LoginRegisterView extends GetView<LoginRegisterView> {
                     padding: const EdgeInsets.only(right: 10, left: 10),
                     decoration: Helpers.customCircularDecoretion(
                         context, AppColors.grey.withOpacity(0.2), 10),
-                    hintText: "EnterEmail".tr,
+                    hintText: "Enter Email or Phone",
                     style: AppTextStyle.labelSmall,
                   ),
                   AppSpace.spaceH14,
@@ -52,12 +52,15 @@ class LoginRegisterView extends GetView<LoginRegisterView> {
                     padding: const EdgeInsets.only(right: 10, left: 10),
                     decoration: Helpers.customCircularDecoretion(
                         context, AppColors.grey.withOpacity(0.2), 10),
-                    hintText: "EnterPassword".tr,
+                    hintText: "Enter Password",
                     style: AppTextStyle.labelSmall,
                   ),
                   AppSpace.spaceH26,
                   InkWell(
                     onTap: () {
+                      print('LoginRegisterView._buildBody');
+
+                      _.userLogin();
 
                     },
                     child: Container(
@@ -67,7 +70,7 @@ class LoginRegisterView extends GetView<LoginRegisterView> {
                       decoration: Helpers.customCircularDecoretion(
                           context, AppColors.primaryColor, 10),
                       child: Text(
-                        'Register ',
+                        'Log In  ',
                         style: AppTextStyle.button,
                       ),
                     ),

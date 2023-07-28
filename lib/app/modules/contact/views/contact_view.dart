@@ -13,12 +13,18 @@ class ContactView extends GetView<ContactController> {
         title: const Text('ContactView'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'ContactView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body:
+      Obx((){
+        print(controller.count.value.toString());
+          return ListView.builder(
+          itemCount: 5,
+          itemBuilder: (context, int index){
+            return ListTile(title: Text('Adnan '),
+             leading: Text(index.toString()),
+            );
+          });
+
+  })
     );
   }
 }
