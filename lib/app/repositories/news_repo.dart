@@ -59,18 +59,22 @@ class NewsRepo {
     }
   }
 
-  Future sendMessage(String email, String password) async {
+  Future sendMessage(String userId, String message) async {
+    print('sms uid: $userId');
+    print('message: $message');
+    var token= await prefs.getString('Token');
     var baseUrl = 'http://svkraft.shop/api/send-sms';
 
     Uri url = Uri.parse(baseUrl);
     try {
       final response = await http.post(url,
-          body: jsonEncode({
-            'to_user': email.toString(),
-            'message': password.toString(),
-          }),
+          body: {
+            'to_user': userId,
+            'message': message,
+          },
           headers: {
             "Accept": "application/json",
+            "Authorization": 'Bearer $token'
           });
       if (kDebugMode) {
         print(' url  $url');

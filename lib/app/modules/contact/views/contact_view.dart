@@ -40,7 +40,7 @@ class ContactView extends GetView<ContactController> {
                            onTap: ()async{
                              print(' data.userId${data.userId.toString()}');
                               List<MessageHistoryModel> history= await ChatController().getMessageList(data.userId.toString());
-                             Get.toNamed(Routes.CHAT,arguments: history);
+                             Get.toNamed(Routes.CHAT,arguments: [history,data.userId.toString()]);
                            },
                           child: Icon(Icons.message)),
                     ),
