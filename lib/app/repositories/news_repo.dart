@@ -26,6 +26,7 @@ class NewsRepo {
     }
   }
 
+  ///done
   Future getContactList() async {
     var token= await prefs.getString('Token');
     print('token : $token');
@@ -79,7 +80,7 @@ class NewsRepo {
       throw Exception(error);
     }
   }
-
+  ///done
   Future signInAuth(String mailOrPhone, String password) async {
     print('mailOrPhone : $mailOrPhone '  ' pass : $password');
     var baseUrl = 'http://svkraft.shop/api/login';
@@ -105,4 +106,5 @@ class NewsRepo {
       throw Exception(error);
     }
   }
+
 }

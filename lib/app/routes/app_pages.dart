@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../main.dart';
 import '../modules/chat/bindings/chat_binding.dart';
 import '../modules/chat/views/chat_view.dart';
 import '../modules/contact/bindings/contact_binding.dart';
@@ -16,7 +17,9 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.WELCOME;
+
+
+  static  String INITIAL = prefs.getString('Token')==null? Routes.WELCOME: Routes.CONTACT;
 
   static final routes = [
     GetPage(
