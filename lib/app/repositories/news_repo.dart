@@ -6,12 +6,16 @@ import '../../main.dart';
 
 class NewsRepo {
 
-  Future getMessageHistoryList() async {
+  Future getMessageHistoryList(String userId) async {
+    print('NewsRepo.getMessageHistoryList >> userId : $userId');
+
+    var token= await prefs.getString('Token');
     var baseUrl = 'http://svkraft.shop/api/sms-history?to_user=20';
     Uri url = Uri.parse(baseUrl);
     try {
       final response = await http.get(url, headers: {
         "Accept": "application/json",
+        "Authorization": 'Bearer $token'
       });
       if (kDebugMode) {
         print(' url  $url');
