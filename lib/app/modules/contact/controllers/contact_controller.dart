@@ -28,6 +28,7 @@ class ContactController extends GetxController {
     super.onClose();
   }
 
+  
   getContactList()async{
    var res = await repo.getContactList();
    var result=jsonDecode(res.body);
