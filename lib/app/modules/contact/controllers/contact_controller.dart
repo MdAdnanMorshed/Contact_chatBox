@@ -17,7 +17,6 @@ class ContactController extends GetxController {
      getContactList();
 
   }
-
   @override
   void onReady() {
     super.onReady();
@@ -27,8 +26,6 @@ class ContactController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  
   getContactList()async{
    var res = await repo.getContactList();
    var result=jsonDecode(res.body);
@@ -38,7 +35,7 @@ class ContactController extends GetxController {
     }
    isLoadingData.value=true;
    print('ContactController.getContactList Lng: ${contactList.length}');
-   print('name : ${contactList[0].name}');
+
   }
 
 }
