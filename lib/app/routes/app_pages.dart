@@ -9,6 +9,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login_register/bindings/login_register_binding.dart';
 import '../modules/login_register/views/login_register_view.dart';
+import '../modules/message_history/bindings/message_history_binding.dart';
+import '../modules/message_history/views/message_history_view.dart';
 import '../modules/welcome/bindings/welcome_binding.dart';
 import '../modules/welcome/views/welcome_view.dart';
 
@@ -17,9 +19,8 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-
-
-  static  String INITIAL = prefs.getString('Token')==null? Routes.WELCOME: Routes.CONTACT;
+  static String INITIAL =
+      prefs.getString('Token') == null ? Routes.WELCOME : Routes.CONTACT;
 
   static final routes = [
     GetPage(
@@ -46,6 +47,11 @@ class AppPages {
       name: _Paths.CHAT,
       page: () => const ChatView(),
       binding: ChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.MESSAGE_HISTORY,
+      page: () => const MessageHistoryView(),
+      binding: MessageHistoryBinding(),
     ),
   ];
 }

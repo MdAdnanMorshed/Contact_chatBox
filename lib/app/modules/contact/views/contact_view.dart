@@ -1,4 +1,5 @@
 import 'package:contact_chat_box/app/models/contact_model.dart';
+import 'package:contact_chat_box/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -27,13 +28,23 @@ class ContactView extends GetView<ContactController> {
                   var image='http://svkraft.shop/${data.image}';
                   print('image <><><> :$image');
 
-                  return Card(
-                    elevation: 2,
-                    child: ListTile(
-                      title: Text(data.name.toString()),
-                      subtitle: Text(data.lastMessage.toString()),
-                      leading: Image.network(image),
-                      trailing: Icon(Icons.message),
+                  return InkWell(
+                    onTap: (){
+                      Get.toNamed(Routes.MESSAGE_HISTORY);
+                    },
+                    child: Card(
+
+                      elevation: 2,
+                      child: ListTile(
+                        title: Text(data.name.toString()),
+                        subtitle: Text(data.lastMessage.toString()),
+                        leading: Image.network(image),
+                        trailing: InkWell(
+                             onTap: (){
+                               Get.toNamed(Routes.CHAT);
+                             },
+                            child: Icon(Icons.message)),
+                      ),
                     ),
                   );
                 });
