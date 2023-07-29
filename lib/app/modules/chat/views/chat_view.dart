@@ -18,7 +18,7 @@ class ChatView extends GetView<ChatController> {
    String uiD = Get.arguments[1];
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ChatView'),
+        title: const Text('Chat View'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -32,7 +32,6 @@ class ChatView extends GetView<ChatController> {
                   itemCount: smsHistory.length,
                   itemBuilder: (context, int index) {
                     MessageHistoryModel data = smsHistory[index];
-
                     return Card(
                       elevation: 2,
                       child: ListTile(
@@ -65,7 +64,7 @@ class ChatView extends GetView<ChatController> {
                   AppSpace.spaceW8,
                   InkWell(
                       onTap: () {
-                        print('uiD @@@@@@@ $uiD');
+
                         FocusScope.of(context).unfocus();
                         controller.sendMessage(uiD.toString());
                       },
