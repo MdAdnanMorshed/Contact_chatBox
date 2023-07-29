@@ -10,7 +10,7 @@ class NewsRepo {
     print('NewsRepo.getMessageHistoryList >> userId : $userId');
 
     var token= await prefs.getString('Token');
-    var baseUrl = 'http://svkraft.shop/api/sms-history?to_user=20';
+    var baseUrl = 'http://svkraft.shop/api/sms-history?to_user=$userId';
     Uri url = Uri.parse(baseUrl);
     try {
       final response = await http.get(url, headers: {

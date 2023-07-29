@@ -1,4 +1,6 @@
 import 'package:contact_chat_box/app/models/contact_model.dart';
+import 'package:contact_chat_box/app/models/message_history_model.dart';
+import 'package:contact_chat_box/app/modules/chat/controllers/chat_controller.dart';
 import 'package:contact_chat_box/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -28,24 +30,19 @@ class ContactView extends GetView<ContactController> {
                   var image='http://svkraft.shop/${data.image}';
                   print('image <><><> :$image');
 
-                  return InkWell(
-                    onTap: (){
-
-                      Get.toNamed(Routes.MESSAGE_HISTORY,arguments: data.userId);
-                    },
-                    child: Card(
-
-                      elevation: 2,
-                      child: ListTile(
-                        title: Text(data.name.toString()),
-                        subtitle: Text(data.lastMessage.toString()),
-                        leading: Image.network(image),
-                        trailing: InkWell(
-                             onTap: (){
-                               Get.toNamed(Routes.CHAT);
-                             },
-                            child: Icon(Icons.message)),
-                      ),
+                  return Card(
+                    elevation: 2,
+                    child: ListTile(
+                      title: Text(data.name.toString()),
+                      subtitle: Text(data.lastMessage.toString()),
+                      leading: Image.network(image),
+                      trailing: InkWell(
+                           onTap: ()async{
+                             print(' data.userId${data.userId.toString()}');
+                              List<MessageHistoryModel> history= await ChatController().getMessageList(data.userId.toString());
+                             Get.toNamed(Routes.CHAT,arguments: history);
+                           },
+                          child: Icon(Icons.message)),
                     ),
                   );
                 });

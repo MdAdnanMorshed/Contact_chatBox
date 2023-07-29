@@ -7,6 +7,7 @@ class ChatBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<ChatController>(
       () => ChatController(),
+
     );
   }
 }

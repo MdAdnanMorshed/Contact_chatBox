@@ -9,7 +9,7 @@ class ChatController extends GetxController {
   //TODO: Implement ChatController
 
   final count = 0.obs;
-  String userId = '123';
+
   NewsRepo repo = NewsRepo();
   List<MessageHistoryModel> messageHistory=[];
   final isLoadingData = false.obs;
@@ -18,7 +18,7 @@ class ChatController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    getMessageList();
+
   }
 
   @override
@@ -32,7 +32,7 @@ class ChatController extends GetxController {
   }
 
   void increment() => count.value++;
-  getMessageList()async{
+ Future<List<MessageHistoryModel>> getMessageList(String userId)async{
     print('userId >>>><><>$userId');
     var res = await repo.getMessageHistoryList(userId);
     var result=jsonDecode(res.body);
@@ -42,5 +42,6 @@ class ChatController extends GetxController {
     isLoadingData.value=true;
     print('ContactController.getContactList Lng: ${messageHistory.length}');
     print('name : ${messageHistory[0].time}');
+    return messageHistory;
   }
 }
