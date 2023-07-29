@@ -18,13 +18,11 @@ class ChatController extends GetxController {
   List<MessageHistoryModel> messageHistory=[];
   final isLoadingData = false.obs;
 
-
   @override
   void onInit() {
     super.onInit();
 
   }
-
   @override
   void onReady() {
     super.onReady();
@@ -36,7 +34,6 @@ class ChatController extends GetxController {
   }
 
  Future<List<MessageHistoryModel>> getMessageList(String userId)async{
-    print('userId >>>><><>$userId');
     uerId.value=userId;
     var res = await repo.getMessageHistoryList(userId);
     var result=jsonDecode(res.body);
