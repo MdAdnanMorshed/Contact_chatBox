@@ -13,7 +13,6 @@ Flutter Version : 3.7.11
   list of technologies and libraries used
     - http:
 
-
 App Features 
    - login done 
    - contact list done  
@@ -26,7 +25,6 @@ A few resources to get :
 - [Project Source Code]
 - [Project Documentation]
 - [Project Demo]
-
 
 
 # Screenshot
