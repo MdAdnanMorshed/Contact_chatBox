@@ -64,7 +64,6 @@ class ChatView extends GetView<ChatController> {
                   AppSpace.spaceW8,
                   InkWell(
                       onTap: () {
-
                         FocusScope.of(context).unfocus();
                         controller.sendMessage(uiD.toString());
                       },
