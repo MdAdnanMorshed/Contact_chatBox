@@ -13,6 +13,13 @@ Flutter Version : 3.7.11
   list of technologies and libraries used
     - http:
 
+
+App Features 
+   - login done 
+   - contact list done  
+   - message history done 
+   - send message done  
+
 A few resources to get :
 
 - [Project APK ]
@@ -24,6 +31,7 @@ A few resources to get :
 
 # Screenshot
 <img src="assets/logo.PNG" width="30%">
+
 
 
 If you have any questions, please feel free to contact us.
